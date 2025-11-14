@@ -18,10 +18,5 @@ def wait(clr=True):
     if clr:
         clear()
 
-def exit():
-    print()
-    print("Exiting the program.")
-    sys.exit()
-
 def pause(seconds):
     time.sleep(seconds)

@@ -1,5 +1,3 @@
-import sys
-import os
 import toolbox as tb
 from resumes import user_resumes
 
@@ -33,13 +31,15 @@ def greet_user(name,age):
     if diff > 0:
         if diff == 1:
             print(f"Welcome, {name}. You are 1 year younger than my creator!")
-        print(f"Welcome, {name}. You are {diff} year(s) younger than my creator!")
+        else:
+            print(f"Welcome, {name}. You are {diff} year(s) younger than my creator!")
     elif diff == 0:
         print(f"Welcome, {name}. My creator's the same age!")
     else: # diff < 0
         if diff == -1:
             print(f"Welcome, {name}. You are 1 year older than my creator!")
-        print(f"Welcome, {name}. You are {-diff} years older than my creator!")
+        else:
+            print(f"Welcome, {name}. You are {-diff} years older than my creator!")
     tb.wait()
 
 # option 0 - submit resume
@@ -61,11 +61,15 @@ def view_resumes():
     if password == "admin123":
         print("\nSubmitted Resumes:")
         print("-" * 40)
-        for resume in user_resumes:
-            print(f"Name: {resume['name']}")
-            print(f"Age: {resume['age']}")
-            print(f"Email: {resume['email']}")
-            print(f"Resume Link: {resume['resume']}")
+        if user_resumes:
+            for resume in user_resumes:
+                print(f"Name: {resume['name']}")
+                print(f"Age: {resume['age']}")
+                print(f"Email: {resume['email']}")
+                print(f"Resume Link: {resume['resume']}")
+                print("-" * 40)
+        else:
+            print("No resumes submitted yet.")
             print("-" * 40)
     else:
         print("Incorrect password. Access denied.")
@@ -91,9 +95,12 @@ def menu(name,age):
     
     choice = None
     while choice not in range(5):
-        choice = int(input("\nEnter a number (0-4): "))
+        try:
+            choice = int(input("\nEnter a number (0-4): "))
+        except ValueError:
+            print("INVALID INPUT")
     
-    os.system("clear")
+    tb.clear()
     if choice == 0:
         submit_resume(name,age)
     elif choice == 1:
@@ -103,11 +110,12 @@ def menu(name,age):
     elif choice == 3:
         office_rules()
     else:
+        print("Thank you for using the Dunking Doughnuts Employment Chatbot. Goodbye!")
         return False
     return True
 
 def main():
-    os.system("clear")
+    tb.clear()
     intro()
     name,age = get_info()
     tb.wait()
