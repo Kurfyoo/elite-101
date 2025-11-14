@@ -1,14 +1,19 @@
+# imports
 import toolbox as tb
 from resumes import user_resumes
 from email.utils import parseaddr
 from urllib.parse import urlparse
 
+# validation functions
+## checks if a URL is valid
 def valid_url(u):
     p = urlparse(u); return p.scheme in ("http","https") and p.netloc
-
+## checks if an email is valid
 def valid_email(e):
     return '@' in parseaddr(e)[1]
 
+# starting intro
+## prints the intro screen
 def intro():
     print(
         "██████╗ ██████╗ ███████╗ ██████╗     ██╗    ██████╗  █████╗ ",
@@ -21,8 +26,7 @@ def intro():
     )
     print("\tthe dunking doughnuts employment chatbot")
     tb.wait()
-
-# returns name (str) and age (int)
+## returns name (str) and age (int)
 def get_info():
     name = input("WHAT IS YOUR FIRST AND LAST NAME? ").title()
     tb.wait()
@@ -34,7 +38,7 @@ def get_info():
             print("\nplease enter a valid age.")
             tb.wait()
     return name,age # after validation
-
+## greets user based on age difference with creator (16 years old)
 def greet_user(name,age):
     diff = 16 - age
     if diff > 0:
@@ -51,7 +55,8 @@ def greet_user(name,age):
             print(f"welcome, {name}. you are {-diff} years older than my creator!")
     tb.wait()
 
-# option 0 - submit resume
+# options menu
+## option 0 - submit resume
 def submit_resume(name,age):
     email = input("PLEASE ENTER YOUR EMAIL ADDRESS: ")
     while not valid_email(email):
@@ -65,14 +70,14 @@ def submit_resume(name,age):
     
     print("\nprocessing resume...")
     user_resumes.append({"name":name, "age":age,"email":email, "resume":link})
-# option 1 - speak to a representative
+## option 1 - speak to a representative
 def speak_to_rep():
     print("phone: 1-800-DUNKIN")
     print("email: dunking@gmail.com")
     print("address: 123 Coffee St, Caffeine City, CA 90210")
     print("hours: 09:00 - 17:00, mon - fri")
     print("\nwe look forward to assisting you!")
-# option 2 - view resumes (admin only)
+## option 2 - view resumes (admin only)
 def view_resumes():
     password = input("ENTER ADMIN PASSWORD: ")
     if password == "admin123":
@@ -90,7 +95,7 @@ def view_resumes():
             print("-" * 40)
     else:
         print("incorrect password. access denied.")
-# option 3 - office rules & expectations
+## option 3 - office rules & expectations
 def office_rules():
     print("office rules & expectations:")
     print("-" * 40)
@@ -102,6 +107,8 @@ def office_rules():
     print("-" * 40)
     print("\nthank you for reviewing our office rules! you've got this!")
 
+# main loop
+## displays the menu and handles user choices
 def menu(name,age):
     print("how can I help you?\n")
     print("0) submit a resume")
@@ -133,7 +140,7 @@ def menu(name,age):
         print("thank you for using DDEC, goodbye!")
         return False
     return True
-
+## main function
 def main():
     tb.clear()
     intro()
@@ -144,6 +151,6 @@ def main():
     while running:
         running = menu(name,age)
         tb.wait()
-
+## main execution
 if __name__ == "__main__":
     main()
