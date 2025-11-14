@@ -1,8 +1,7 @@
 user_resumes = [
     {
-        "name":"John",
+        "name":"John Doe",
         "age":24,
         "email":"example@gmail.com",
-        "resume":"https://www.google.com/search?q=alarm+definition&sca_esv=ad5d78fe25a26ce1&rlz=1C1GCEA_enUS1175US1175&ei=IikWaejJKrmHqtsPqv_ekAQ&ved=0ahUKEwjo4rap5u-QAxW5g2oFHaq_F0IQ4dUDCBE&uact=5&oq=alarm+definition&gs_lp=Egxnd3Mtd2l6LXNlcnAiEGFsYXJtIGRlZmluaXRpb24yChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEcyDRAAGIAEGLADGEMYigUyDRAAGIAEGLADGEMYigUyDRAAGIAEGLADGEMYigUyDRAAGIAEGLADGEMYigUyDhAAGLADGOQCGNYE2AEBMg4QABiwAxjkAhjWBNgBATIOEAAYsAMY5AIY1gTYAQEyFhAuGIAEGLADGEMY1AIYyAMYigXYAQEyFhAuGIAEGLADGEMY1AIYyAMYigXYAQFIxQRQAFgAcAF4AZABAJgBAKABAKoBALgBA8gBAJgCAaACBJgDAIgGAZAGEboGBggBEAEYCZIHATGgBwCyBwC4BwDCBwMyLTHIBwM&sclient=gws-wiz-serp&safe=active&ssui=on"
-    }
+        "resume":"https://www.example.com/resume/john_doe"}
 ]
